@@ -1,0 +1,53 @@
+version: '3.7'
+
+networks: 
+  local:
+
+services:
+
+  db:
+    container_name: db
+    networks:
+      - local
+    image: mysql
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+      MYSQL_ROOT_PASSWORD: root
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    
+  backend:
+    container_name: backend
+    networks: 
+      - local
+    depends_on:
+      - db
+    build:
+      dockerfile: backend.dockerfile
+      context: .
+    volumes:
+      - "./backend/:/home/"
+    ports:
+      - 5000:5000
+    command: "python main.py"
+
+  frontend:
+    container_name: frontend
+    networks: 
+      - local
+    depends_on:
+      - backend
+    build:
+      dockerfile: frontend.dockerfile
+      context: .
+    working_dir: /home/node/app
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 3000:3000
+    command: "npm start"

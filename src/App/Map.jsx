@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import * as L from 'leaflet';
-import carto from '@carto/carto.js';
+//import carto from '@carto/carto.js';
 import 'leaflet/dist/leaflet.css';
 import PropTypes from 'prop-types';
 import { getPoints } from '../Utils/ApiUils';
