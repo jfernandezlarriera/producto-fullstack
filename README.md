@@ -1,6 +1,6 @@
 ## Requerimientos
 
-[Ver archivo](https://github.com/jfernandezlarriera/producto-fullstack/blob/main/Ex%C3%A1men_-_Full_Stack_Developer.pdf).
+[Ver archivo](https://github.com/jfernandezlarriera/producto-fullstack/blob/main/Ex%C3%A1men_-_Full_Stack_Developer.pdf)
 
 ## Requesitos
 
